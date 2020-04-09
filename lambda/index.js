@@ -108,12 +108,24 @@ const ShowPicsIntentHandler = {
         && handlerInput.requestEnvelope.request.intent.name === 'ShowPics';
     },
     handle(handlerInput) {
-        const speechText = getRandom(PIC_MESSAGE);
+        let speechText = getRandom(PIC_MESSAGE);
+        let responseBuilder = handlerInput.responseBuilder;
 
-        return handlerInput.responseBuilder
-        .speak(speechText)
-        .withStandardCard('Standard Card','test text','https://waffle-content.s3.amazonaws.com/lovers-skill/waffle_lovers_relationship4_s.jpg','https://waffle-content.s3.amazonaws.com/lovers-skill/waffle_lovers_relationship4_l.jpg')
-        .getResponse();
+        if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
+            
+            // Add the RenderDocument directive to the responseBuilder
+            responseBuilder.addDirective({
+                type: 'Alexa.Presentation.APL.RenderDocument',
+                token: HELLO_WORLD_TOKEN,
+                document: helloworldDocument
+            });
+            
+        }
+        return responseBuilder
+            .speak(speechText)
+            .getResponse();
+    }
+
     }
 };
 
@@ -202,8 +214,8 @@ const ErrorHandler = {
         console.log(`Error handled: ${error.message}`);
   
         return handlerInput.responseBuilder
-        .speak('Sorry, I can\'t understand the command. This is Error Handler, woops.')
-        .reprompt('Sorry, I can\'t understand the command. This is Error Handler, woops.')
+        .speak('Sorry, I can\'t understand the input. This is Error Handler, woops.')
+        .reprompt('Sorry, I can\'t understand the input. This is Error Handler, woops.')
         .getResponse();
     },
 };

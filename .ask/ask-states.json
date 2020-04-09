@@ -9,8 +9,8 @@
               "iamRole": "arn:aws:iam::291979144385:role/ask-lambda-loverstemplate-1586403978367",
               "lambda": {
                 "arn": "arn:aws:lambda:us-east-1:291979144385:function:ask-loverstemplate-default-default-1586403979265",
-                "lastModified": "2020-04-09T05:51:00.234+0000",
-                "revisionId": "4d41994f-d3e5-45d5-b4ca-f669de809c30"
+                "lastModified": "2020-04-09T06:32:50.188+0000",
+                "revisionId": "f1fe6552-aeee-4a65-8e61-dc2272ff2a28"
               }
             }
           }
@@ -18,7 +18,7 @@
       },
       "skillId": "amzn1.ask.skill.58266f73-5edd-46a9-b109-3131ea9d162b",
       "skillMetadata": {
-        "lastDeployHash": "Z8mw8SXxQwJx1p175cRuSCQ16CU="
+        "lastDeployHash": "zQ6WScqLe0SBlBZsm09yw6pHbck="
       },
       "code": {
         "default": {}
