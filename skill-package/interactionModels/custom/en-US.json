@@ -160,7 +160,7 @@
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
-                                "elicitation": ""
+                                "elicitation": "Elicit.Slot.965522663204.282926431903"
                             }
                         }
                     ]
@@ -175,6 +175,15 @@
                     {
                         "type": "PlainText",
                         "value": "can you tell me the month again?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.965522663204.282926431903",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "can you tell me the day again?"
                     }
                 ]
             }
