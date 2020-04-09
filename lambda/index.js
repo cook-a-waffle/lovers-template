@@ -125,8 +125,6 @@ const ShowPicsIntentHandler = {
             .speak(speechText)
             .getResponse();
     }
-
-    }
 };
 
 const GetAnnivIntentHandler = {
