@@ -111,7 +111,6 @@ const ShowPicsIntentHandler = {
         let speechText = getRandom(PIC_MESSAGE);
         let responseBuilder = handlerInput.responseBuilder;
 
-
         return responseBuilder
             .speak(speechText)
             .getResponse();
