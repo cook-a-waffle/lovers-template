@@ -1,0 +1,104 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "lovers skill",
+            "modelConfiguration": {
+                "fallbackIntentSensitivity": {
+                    "level": "LOW"
+                }
+            },
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "GetFunFact",
+                    "slots": [],
+                    "samples": [
+                        "fun fact",
+                        "can you tell another fun fact",
+                        "can you tell me another fun fact",
+                        "can you tell a fun fact",
+                        "can you give another fun fact",
+                        "can you give me another fun fact",
+                        "can you give a fun fact",
+                        "can you tell me a fun fact about my girlfriend and me",
+                        "can you tell me a fun fact about my boyfriend and me",
+                        "can you tell me a fun fact",
+                        "can you tell me a fun fact about us",
+                        "can you tell me a fun fact on the relationship",
+                        "can you give me a fun fact about my girlfriend and me",
+                        "can you give me a fun fact about my boyfriend and me ",
+                        "can you give me a fun fact about the relationship ",
+                        "can you give me a fun fact",
+                        "can you give me a fun fact about us",
+                        "can you give me a fun fact on the relationship",
+                        "tell me a fun fact about my girlfriend and me",
+                        "tell me a fun fact about my boyfriend and me",
+                        "tell me a fun fact",
+                        "tell me a fun fact about us",
+                        "tell me a fun fact on the relationship",
+                        "give me a fun fact about my girlfriend and me",
+                        "give me a fun fact about my boyfriend and me",
+                        "give me a fun fact about the relationship ",
+                        "give me a fun fact",
+                        "Give me a fun fact about us",
+                        "Give me a fun fact on the relationship"
+                    ]
+                },
+                {
+                    "name": "ShowPics",
+                    "slots": [],
+                    "samples": [
+                        "photo",
+                        "picture",
+                        "show me a photo",
+                        "show me a picture"
+                    ]
+                },
+                {
+                    "name": "GetAnniv",
+                    "slots": [],
+                    "samples": [
+                        "anniversary",
+                        "tell me about our anniversary",
+                        "tell me about anniversary",
+                        "what day is our anniversary",
+                        "When is our anniversary"
+                    ]
+                },
+                {
+                    "name": "GetCountDown",
+                    "slots": [],
+                    "samples": [
+                        "countdown",
+                        "tell me how long until our anniversary",
+                        "how many days until our anniversary",
+                        "show me the countdown to our anniversary",
+                        "in how many days is our anniversary",
+                        "How long until our anniversary",
+                        "How much time until our anniversary"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}

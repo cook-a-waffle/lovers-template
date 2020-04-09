@@ -1,0 +1,30 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Lovers skill template for waffle",
+          "examplePhrases": [
+            "Alexa open lovers skill",
+            "Ask lovers skill about the anniversary",
+            "Ask lovers skill for a fun fact"
+          ],
+          "name": "lovers template",
+          "description": "Lovers skill template for waffle"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:291979144385:function:ask-loverstemplate-default-default-1586403979265"
+        }
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}
