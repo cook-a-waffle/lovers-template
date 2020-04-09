@@ -22,8 +22,8 @@ const PIC_MESSAGE = [
 ]
 
 const anniv_date = {
-    'm':'January',
-    'd': 'fourth'
+    'm':'September',
+    'd': 'twenty'
 }
 
 const ANNIV_MESSAGE = [`your anniversary is on, `]
@@ -245,7 +245,7 @@ const ErrorHandler = {
         console.log(`Error handled: ${error.message}`);
   
         return handlerInput.responseBuilder
-        .speak('Sorry, I can\'t understand the input. This is Error Handler, woops.')
+        .speak(error.message+ 'This is Error Handler, woops.')
         .reprompt('Sorry, I can\'t understand the input. This is Error Handler, woops.')
         .getResponse();
     },

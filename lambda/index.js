@@ -245,7 +245,7 @@ const ErrorHandler = {
         console.log(`Error handled: ${error.message}`);
   
         return handlerInput.responseBuilder
-        .speak('Sorry, I can\'t understand the input. This is Error Handler, woops.')
+        .speak(error.message+ 'This is Error Handler, woops.')
         .reprompt('Sorry, I can\'t understand the input. This is Error Handler, woops.')
         .getResponse();
     },
