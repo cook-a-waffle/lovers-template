@@ -22,8 +22,8 @@ const PIC_MESSAGE = [
 ]
 
 const anniv_date = {
-    'm':'January',
-    'd': 'fourth'
+    'm':'September',
+    'd': 'twenty'
 }
 
 const ANNIV_MESSAGE = [`your anniversary is on, `]
@@ -256,7 +256,7 @@ const ErrorHandler = {
 
 exports.handler = Alexa.SkillBuilders.custom()
     .withPersistenceAdapter(
-        new persistenceAdapter({ bucketName : 'waffle-content' })
+        new persistenceAdapter.S3PersistenceAdapter({bucketName:process.env.S3_PERSISTENCE_BUCKET})
     )
     .addRequestHandlers(
         LaunchRequestHandler,

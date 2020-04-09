@@ -2,8 +2,6 @@ const Alexa = require('ask-sdk-core');
 const helloworldDocument = require('./helloworldDocument.json');
 const persistenceAdapter = require('ask-sdk-s3-persistence-adapter');
 
-const persistenceAdapter = new persistenceAdapter({ bucketName : 'waffle-content' })
-
 //////////////////////////////////////////////////////////////////////////////////////////
 //  Messages
 
@@ -258,7 +256,7 @@ const ErrorHandler = {
 
 exports.handler = Alexa.SkillBuilders.custom()
     .withPersistenceAdapter(
-        new persistenceAdapter.S3PersistenceAdapter({bucketName:ProcessingInstruction.env.S3_PERSISTENCE_BUCKET})
+        new persistenceAdapter.S3PersistenceAdapter({bucketName:process.env.S3_PERSISTENCE_BUCKET})
     )
     .addRequestHandlers(
         LaunchRequestHandler,
