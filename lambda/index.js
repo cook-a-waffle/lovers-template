@@ -112,6 +112,7 @@ const ShowPicsIntentHandler = {
 
         return handlerInput.responseBuilder
         .speak(speechText)
+        .withStandardCard('Standard Card','test text','https://waffle-content.s3.amazonaws.com/lovers-skill/waffle_lovers_relationship4_s.jpg','https://waffle-content.s3.amazonaws.com/lovers-skill/waffle_lovers_relationship4_l.jpg')
         .getResponse();
     }
 };
@@ -201,8 +202,8 @@ const ErrorHandler = {
         console.log(`Error handled: ${error.message}`);
   
         return handlerInput.responseBuilder
-        .speak('Sorry, I can\'t understand the command. Please say again.')
-        .reprompt('Sorry, I can\'t understand the command. Please say again.')
+        .speak('Sorry, I can\'t understand the command. This is Error Handler, woops.')
+        .reprompt('Sorry, I can\'t understand the command. This is Error Handler, woops.')
         .getResponse();
     },
 };

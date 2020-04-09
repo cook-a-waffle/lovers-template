@@ -112,6 +112,7 @@ const ShowPicsIntentHandler = {
 
         return handlerInput.responseBuilder
         .speak(speechText)
+        .withStandardCard('Standard Card','test text','https://waffle-content.s3.amazonaws.com/lovers-skill/waffle_lovers_relationship4_s.jpg','https://waffle-content.s3.amazonaws.com/lovers-skill/waffle_lovers_relationship4_l.jpg')
         .getResponse();
     }
 };
