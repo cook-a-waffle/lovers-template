@@ -1,5 +1,7 @@
 const Alexa = require('ask-sdk-core');
 const helloworldDocument = require('./helloworldDocument.json');
+const persistenceAdapter = require('ask-sdk-s3-persistence-adapter');
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //  Messages
 
@@ -169,12 +171,21 @@ const RegAnnivIntentHandler = {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
         && handlerInput.requestEnvelope.request.intent.name === 'RegAnniv';
     },
-    handle(handlerInput) {
+    async handle(handlerInput) {
         const monthR = handlerInput.requestEnvelope.request.intent.slots.month.value;
         const dayR = handlerInput.requestEnvelope.request.intent.slots.day.value
         
-        const speechText = `Thanks, I'll remember that your anniversary is on ${monthR} ${dayR}`;
+        const attributesManager = handlerInput.attributesManager;
 
+        let birthdayAttributes = {
+            "m":monthR,
+            "d":dayR
+        };
+
+        attributesManager.setPersistentAttributes(birthdayAttributes);
+        await attributesManager.savePersistentAttributes();
+
+        const speechText = `Thanks, I'll remember that your anniversary is on ${monthR} ${dayR}`;
         return handlerInput.responseBuilder
         .speak(speechText)
         .getResponse();
@@ -244,16 +255,20 @@ const ErrorHandler = {
 //  Lambda Handler
 
 exports.handler = Alexa.SkillBuilders.custom()
+    .withPersistenceAdapter(
+        new persistenceAdapter.S3PersistenceAdapter({bucketName:ProcessingInstruction.env.S3_PERSISTENCE_BUCKET})
+    )
     .addRequestHandlers(
-    LaunchRequestHandler,
-    GetFunFactIntentHandler,
-    ShowPicsIntentHandler,
-    GetAnnivIntentHandler,
-    GetCountDownIntentHandler,
-    NewAnnivIntentHandler,
-    RegAnnivIntentHandler,
-    HelpIntentHandler,
-    CancelAndStopIntentHandler,
-    SessionEndedRequestHandler)
+        LaunchRequestHandler,
+        GetFunFactIntentHandler,
+        ShowPicsIntentHandler,
+        GetAnnivIntentHandler,
+        GetCountDownIntentHandler,
+        NewAnnivIntentHandler,
+        RegAnnivIntentHandler,
+        HelpIntentHandler,
+        CancelAndStopIntentHandler,
+        SessionEndedRequestHandler
+        )
     .addErrorHandlers(ErrorHandler)
     .lambda();
