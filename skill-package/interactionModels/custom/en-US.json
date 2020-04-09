@@ -83,7 +83,8 @@
                         "tell me about our anniversary",
                         "tell me about anniversary",
                         "what day is our anniversary",
-                        "When is our anniversary"
+                        "When is our anniversary",
+                        "when's the anniversary"
                     ]
                 },
                 {
@@ -98,9 +99,85 @@
                         "How long until our anniversary",
                         "How much time until our anniversary"
                     ]
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "hello world"
+                    ]
+                },
+                {
+                    "name": "RegAnniv",
+                    "slots": [
+                        {
+                            "name": "month",
+                            "type": "AMAZON.Month"
+                        },
+                        {
+                            "name": "day",
+                            "type": "AMAZON.Ordinal"
+                        }
+                    ],
+                    "samples": [
+                        "the {day} of {month}",
+                        "{month} {day}",
+                        "its on {month} {day}",
+                        "Our anniversary is on {month} {day}"
+                    ]
+                },
+                {
+                    "name": "newAnniv",
+                    "slots": [],
+                    "samples": [
+                        "change anniversary",
+                        "new anniversary",
+                        "register new anniversary"
+                    ]
                 }
             ],
             "types": []
-        }
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "RegAnniv",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "month",
+                            "type": "AMAZON.Month",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1341961291185.1199396857696"
+                            }
+                        },
+                        {
+                            "name": "day",
+                            "type": "AMAZON.Ordinal",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": ""
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1341961291185.1199396857696",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "can you tell me the month again?"
+                    }
+                ]
+            }
+        ]
     }
 }

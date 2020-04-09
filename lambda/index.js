@@ -19,7 +19,11 @@ const PIC_MESSAGE = [
     "You two look great together",
 ]
 
-const anniv_date = 'January third'
+const anniv_date = {
+    'm':'January',
+    'd': 'fourth'
+}
+
 const ANNIV_MESSAGE = [`your anniversary is on, `]
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -108,21 +112,12 @@ const ShowPicsIntentHandler = {
         && handlerInput.requestEnvelope.request.intent.name === 'ShowPics';
     },
     handle(handlerInput) {
-        let speechText = getRandom(PIC_MESSAGE);
-        let responseBuilder = handlerInput.responseBuilder;
-
-        if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
-            
-            // Add the RenderDocument directive to the responseBuilder
-            responseBuilder.addDirective({
-                type: 'Alexa.Presentation.APL.RenderDocument',
-                token: HELLO_WORLD_TOKEN,
-                document: helloworldDocument
-            });
-        };
-
-        return responseBuilder.speak(speechText).getResponse()
-    };
+        const speechText = getRandom(PIC_MESSAGE);
+        
+        return handlerInput.responseBuilder
+        .speak(speechText)
+        .getResponse()
+    }
 };
 
 const GetAnnivIntentHandler = {
@@ -156,6 +151,38 @@ const GetCountDownIntentHandler = {
     }
 };
 
+const NewAnnivIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+        && handlerInput.requestEnvelope.request.intent.name === 'GetCountDown';
+    },
+    handle(handlerInput) {
+        const speechText = 'Will do, just tell me the new date.';
+
+        return handlerInput.responseBuilder
+        .speak(speechText)
+        .withSimpleCard('Get countdown card', speechText)
+        .getResponse();
+    }
+};
+
+const RegAnnivIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+        && handlerInput.requestEnvelope.request.intent.name === 'RegAnniv';
+    },
+    handle(handlerInput) {
+        const monthR = handlerInput.requestEnvelope.request.intent.    
+        const monthR = handlerInput.requestEnvelope.request.intent.
+        
+        const speechText = 'Get countdown intent speak';
+
+        return handlerInput.responseBuilder
+        .speak(speechText)
+        .withSimpleCard('Get countdown card', speechText)
+        .getResponse();
+    }
+};
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //  Support Intents
@@ -226,6 +253,8 @@ exports.handler = Alexa.SkillBuilders.custom()
     ShowPicsIntentHandler,
     GetAnnivIntentHandler,
     GetCountDownIntentHandler,
+    NewAnnivIntentHandler,
+    RegAnnivIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler)
