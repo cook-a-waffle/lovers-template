@@ -2,6 +2,8 @@ const Alexa = require('ask-sdk-core');
 const helloworldDocument = require('./helloworldDocument.json');
 const persistenceAdapter = require('ask-sdk-s3-persistence-adapter');
 
+const persistenceAdapter = new persistenceAdapter({ bucketName : 'waffle-content' })
+
 //////////////////////////////////////////////////////////////////////////////////////////
 //  Messages
 
