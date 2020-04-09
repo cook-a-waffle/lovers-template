@@ -9,8 +9,8 @@
               "iamRole": "arn:aws:iam::291979144385:role/ask-lambda-loverstemplate-1586403978367",
               "lambda": {
                 "arn": "arn:aws:lambda:us-east-1:291979144385:function:ask-loverstemplate-default-default-1586403979265",
-                "lastModified": "2020-04-09T07:04:16.973+0000",
-                "revisionId": "5230357e-61a6-4979-a1a4-7f97acb744d9"
+                "lastModified": "2020-04-09T07:09:44.255+0000",
+                "revisionId": "2b243807-7a41-4e3d-b064-d1d5c1f0eeef"
               }
             }
           }

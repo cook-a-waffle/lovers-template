@@ -111,6 +111,15 @@ const ShowPicsIntentHandler = {
         let speechText = getRandom(PIC_MESSAGE);
         let responseBuilder = handlerInput.responseBuilder;
 
+        if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
+            
+            // Add the RenderDocument directive to the responseBuilder
+            responseBuilder.addDirective({
+                type: 'Alexa.Presentation.APL.RenderDocument',
+                token: HELLO_WORLD_TOKEN,
+                document: helloworldDocument
+            });
+
         return responseBuilder
             .speak(speechText)
             .getResponse();

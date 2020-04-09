@@ -19,7 +19,7 @@ const PIC_MESSAGE = [
     "You two look great together",
 ]
 
-const anniv_date = 'January fifth'
+const anniv_date = 'January third'
 const ANNIV_MESSAGE = [`your anniversary is on, `]
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -119,11 +119,10 @@ const ShowPicsIntentHandler = {
                 token: HELLO_WORLD_TOKEN,
                 document: helloworldDocument
             });
+        };
 
-        return responseBuilder
-            .speak(speechText)
-            .getResponse();
-    }
+        return responseBuilder.speak(speechText).getResponse()
+    };
 };
 
 const GetAnnivIntentHandler = {
