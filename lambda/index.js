@@ -1,5 +1,5 @@
 const Alexa = require('ask-sdk-core');
-
+const helloworldDocument = require('./helloworldDocument.json');
 //////////////////////////////////////////////////////////////////////////////////////////
 //  Messages
 
@@ -19,7 +19,7 @@ const PIC_MESSAGE = [
     "You two look great together",
 ]
 
-const anniv_date = 'January fourth'
+const anniv_date = 'January fifth'
 const ANNIV_MESSAGE = [`your anniversary is on, `]
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -111,16 +111,7 @@ const ShowPicsIntentHandler = {
         let speechText = getRandom(PIC_MESSAGE);
         let responseBuilder = handlerInput.responseBuilder;
 
-        if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']){
-            
-            // Add the RenderDocument directive to the responseBuilder
-            responseBuilder.addDirective({
-                type: 'Alexa.Presentation.APL.RenderDocument',
-                token: HELLO_WORLD_TOKEN,
-                document: helloworldDocument
-            });
-            
-        }
+
         return responseBuilder
             .speak(speechText)
             .getResponse();
