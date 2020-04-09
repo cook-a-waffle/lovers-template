@@ -146,7 +146,6 @@ const GetCountDownIntentHandler = {
 
         return handlerInput.responseBuilder
         .speak(speechText)
-        .withSimpleCard('Get countdown card', speechText)
         .getResponse();
     }
 };
@@ -154,14 +153,13 @@ const GetCountDownIntentHandler = {
 const NewAnnivIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-        && handlerInput.requestEnvelope.request.intent.name === 'GetCountDown';
+        && handlerInput.requestEnvelope.request.intent.name === 'newAnniv';
     },
     handle(handlerInput) {
         const speechText = 'Will do, just tell me the new date.';
 
         return handlerInput.responseBuilder
         .speak(speechText)
-        .withSimpleCard('Get countdown card', speechText)
         .getResponse();
     }
 };
@@ -172,14 +170,13 @@ const RegAnnivIntentHandler = {
         && handlerInput.requestEnvelope.request.intent.name === 'RegAnniv';
     },
     handle(handlerInput) {
-        const monthR = handlerInput.requestEnvelope.request.intent.    
-        const monthR = handlerInput.requestEnvelope.request.intent.
+        const monthR = handlerInput.requestEnvelope.request.intent.slots.month.value;
+        const dayR = handlerInput.requestEnvelope.request.intent.slots.day.value
         
-        const speechText = 'Get countdown intent speak';
+        const speechText = `Thanks, I'll remember that your anniversary is on ${monthR} ${dayR}`;
 
         return handlerInput.responseBuilder
         .speak(speechText)
-        .withSimpleCard('Get countdown card', speechText)
         .getResponse();
     }
 };
